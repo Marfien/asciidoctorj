@@ -9,7 +9,7 @@ import java.util.*;
  * See <a href="https://docs.asciidoctor.org/asciidoctor/latest/api/options/">https://docs.asciidoctor.org/asciidoctor/latest/api/options/</a> for further
  * details.
  */
-public class Options {
+public class Options implements Cloneable {
 
     public static final String IN_PLACE = "in_place";
     public static final String WARNINGS = "warnings";
@@ -204,4 +204,10 @@ public class Options {
         return this.options;
     }
 
+    @Override
+    public Options clone() {
+        Options clone = new Options();
+        clone.options.putAll(this.options);
+        return clone;
+    }
 }
